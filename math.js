@@ -34,3 +34,26 @@ function calcularCuadrado(lado) {
     }
 }
 console.groupEnd("Triangulos");
+
+console.group("Circulos");
+
+const radioCirculo = 3;
+const diametroCirculo = radioCirculo * 2;
+const PI = Math.PI;
+const circunferencia = diametroCirculo * PI;
+const areaCirculo = (radioCirculo ** 2) * PI;
+
+console.log({radioCirculo, diametroCirculo, PI, circunferencia, areaCirculo});
+
+function calcularCirculo(radio) {
+    const diametro = radio * 2;
+    const radioCuadrado = Math.pow(radio, 2);
+    
+    return {
+        circunferencia: diametro * PI.toFixed(2),
+        area: radioCuadrado * PI.toFixed(2)
+    }
+}
+
+console.groupEnd("Circulos");
+
