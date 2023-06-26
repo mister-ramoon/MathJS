@@ -7,6 +7,13 @@ const areaCuadrado = ladoCuadrado * ladoCuadrado;
 
 console.log({ladoCuadrado, perimetroCuadrado, areaCuadrado});
 
+function calcularCuadrado(lado) {
+    return {
+        perimetro: lado * 4,
+        area: lado * lado
+    }
+}
+
 console.groupEnd('Cuadrados');
 
 console.group("Triangulos");
@@ -27,12 +34,26 @@ function calcularTriangulo(lado1, lado2, base, altura) {
     }
 }
 
-function calcularCuadrado(lado) {
-    return {
-        perimetro: lado * 4,
-        area: lado * lado
+function calcularAlturaTriangulo(lado1, base) {
+    if(lado1 === base) {
+        console.log('Este no es un triangulo isosceles');
+    } else {
+        return Math.sqrt((lado1 ** 2) - ((base ** 2) / 4));
     }
 }
+
+function trianguloEscaleno(lado1, lado2, base) {
+    const semiPerimetro = (lado1 + lado2 + base) / 2;
+    const altura = (2/lado1) * Math.sqrt(semiPerimetro * (semiPerimetro - lado1) * (semiPerimetro - lado2) * (semiPerimetro - base));
+    
+    if (lado1 === lado2 || lado1 === base || lado2 === base) {
+        console.log('Este no es un triangulo escaleno');
+    }
+    else {
+        return Math.round(altura);
+    }
+}
+
 console.groupEnd("Triangulos");
 
 console.group("Circulos");
@@ -56,4 +77,3 @@ function calcularCirculo(radio) {
 }
 
 console.groupEnd("Circulos");
-
